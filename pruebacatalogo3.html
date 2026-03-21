@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Catalogo</title>
+<link rel="icon" href="imagen/2.png" type="png" sizes="16x16">
+
+<style>
+body {font-family: Arial; margin:0; background:#f4f4f4;}
+
+header {background:#111;color:white;text-align:center;padding:20px;}
+
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.card {
+background:white;
+padding:15px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn {
+background:#25D366;
+color:white;
+padding:8px 12px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.carrito {
+position:fixed;
+right:0;
+top:0;
+width:300px;
+height:100%;
+background:white;
+box-shadow:-3px 0 10px rgba(0,0,0,0.2);
+padding:15px;
+overflow-y:auto;
+}
+
+.item {
+border-bottom:1px solid #ddd;
+padding:10px 0;
+}
+
+.total {
+font-weight:bold;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>PERFUMERÍA</h1>
+</header>
+
+<main>
+<div class="grid" id="grid"></div>
+</main>
+
+<div class="carrito">
+<h2>🛒 Carrito</h2>
+<div id="items"></div>
+<p class="total" id="total">$0</p>
+<button class="btn" onclick="comprar()">Finalizar compra</button>
+</div>
+
+<script>
+
+const perfumes = [
+{nombre:"KHAMRAH", precio:50000},
+{nombre:"KHAMRAH QAHWA", precio:49000},
+{nombre:"PHILOS PURA", precio:50000},
+{nombre:"9 PM", precio:58000},
+{nombre:"CDN INTENSE MAN EDT 105ML", precio:70000},
+{nombre:"CDN URBAN MAN ELIXIR 105ML", precio:72000},
+{nombre:"FAKHAR BLACK", precio:55000},
+{nombre:"OUD FOR GLORY", precio:50000},
+{nombre:"HONOR AND GLORY", precio:51000},
+{nombre:"ASAD BOURBON", precio:60000},
+{nombre:"ASAD", precio:55000},
+{nombre:"HIS CONFESSION", precio:62000},
+{nombre:"THE KINGDOM", precio:60000},
+{nombre:"9 AM DIVE", precio:65000},
+{nombre:"MANDARIN SKY", precio:58000},
+{nombre:"LIQUID BRUN", precio:72000},
+{nombre:"ODYSSEY AQUA", precio:74000},
+{nombre:"HAWAS CLASICO", precio:56000},
+{nombre:"HAWAS ICE", precio:85000}
+];
+
+let carrito = [];
+
+const grid = document.getElementById("grid");
+const items = document.getElementById("items");
+const totalEl = document.getElementById("total");
+
+function mostrar(){
+grid.innerHTML="";
+perfumes.forEach(p=>{
+grid.innerHTML += `
+<div class="card">
+<h3><strong>${p.nombre}</strong></h3>
+<p>$${p.precio}</p>
+<button class="btn" onclick='agregar("${p.nombre}", ${p.precio})'>Agregar</button>
+</div>
+`;
+});
+}
+
+function agregar(nombre, precio){
+carrito.push({nombre, precio});
+renderCarrito();
+}
+
+function renderCarrito(){
+items.innerHTML="";
+let total = 0;
+
+carrito.forEach((p,i)=>{
+total += p.precio;
+
+items.innerHTML += `
+<div class="item">
+${p.nombre} - $${p.precio}
+<button onclick="eliminar(${i})">❌</button>
+</div>
+`;
+});
+
+totalEl.innerText = "Total: $" + total;
+}
+
+function eliminar(i){
+carrito.splice(i,1);
+renderCarrito();
+}
+
+function comprar(){
+if(carrito.length === 0){
+alert("El carrito está vacío");
+return;
+}
+
+let mensaje = "Hola quiero comprar:%0A";
+
+carrito.forEach(p=>{
+mensaje += "- " + p.nombre + " ($" + p.precio + ")%0A";
+});
+
+window.open("https://wa.me/3584114412?text=" + mensaje);
+}
+
+mostrar();
+
+</script>
+
+</body>
+</html>
