@@ -32,11 +32,12 @@ header {
     border-radius:12px;
     text-align:center;
     box-shadow:0 5px 20px rgba(0,0,0,0.5);
-    transition:0.3s;
+    transition: all 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:0 10px 30px rgba(0,0,0,0.8);
 }
 
 .card h3 {
@@ -44,7 +45,7 @@ header {
 }
 
 .price {
-    color:#c9a96e; /* dorado */
+    color:#c9a96e;
     font-weight:bold;
     margin:10px 0;
 }
@@ -56,13 +57,33 @@ header {
     border:none;
     border-radius:6px;
     cursor:pointer;
-    transition:0.3s;
+    transition: all 0.2s ease;
 }
 
 .btn:hover {
     background:white;
+    transform: scale(1.05);
 }
 
+.btn:active {
+    transform: scale(0.9);
+}
+
+/* BOTÓN CARRITO */
+.btn-carrito {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background:#c9a96e;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    z-index:1000;
+    font-weight:bold;
+}
+
+/* CARRITO */
 .carrito {
     position:fixed;
     right:0;
@@ -73,6 +94,12 @@ header {
     padding:15px;
     overflow-y:auto;
     border-left:2px solid #c9a96e;
+    transform: translateX(100%);
+    transition: 0.4s ease;
+}
+
+.carrito.abierto {
+    transform: translateX(0);
 }
 
 .item {
@@ -105,11 +132,14 @@ header {
 <p style="color:#aaa;">Catálogo exclusivo</p>
 </header>
 
+<!-- BOTÓN CARRITO -->
+<button class="btn-carrito" onclick="toggleCarrito()">🛒</button>
+
 <main>
 <div class="grid" id="grid"></div>
 </main>
 
-<div class="carrito">
+<div class="carrito" id="carrito">
 <h2>🛒 Carrito</h2>
 <div id="items"></div>
 <p class="total" id="total">$0</p>
@@ -162,6 +192,9 @@ grid.innerHTML += `
 function agregar(nombre, precio){
 carrito.push({nombre, precio});
 renderCarrito();
+
+    // abre carrito automáticamente
+    document.getElementById("carrito").classList.add("abierto");
 }
 
 function renderCarrito(){
@@ -200,6 +233,11 @@ mensaje += "- " + p.nombre + " ($" + p.precio + ")%0A";
 });
 
 window.open("https://wa.me/5493584114412?text=" + mensaje);
+}
+
+function toggleCarrito(){
+    const c = document.getElementById("carrito");
+    c.classList.toggle("abierto");
 }
 
 mostrar();
