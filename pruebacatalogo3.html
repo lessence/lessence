@@ -52,7 +52,6 @@ header {
     transition: transform 0.4s ease;
 }
 
-/* ZOOM */
 .card:hover img {
     transform: scale(1.1);
 }
@@ -181,35 +180,35 @@ header {
 <script>
 
 const perfumes = [
-{nombre:"KHAMRAH", precio:50000},
-{nombre:"KHAMRAH QAHWA", precio:49000},
-{nombre:"PHILOS PURA", precio:50000},
-{nombre:"9 PM", precio:58000},
-{nombre:"CDN INTENSE MAN EDT 105ML", precio:70000},
-{nombre:"CDN URBAN MAN ELIXIR 105ML", precio:72000},
-{nombre:"FAKHAR BLACK", precio:55000},
-{nombre:"OUD FOR GLORY", precio:50000},
-{nombre:"HONOR AND GLORY", precio:51000},
-{nombre:"ASAD BOURBON", precio:60000},
-{nombre:"ASAD", precio:55000},
-{nombre:"HIS CONFESSION", precio:62000},
-{nombre:"THE KINGDOM", precio:60000},
-{nombre:"9 AM DIVE", precio:65000},
-{nombre:"MANDARIN SKY", precio:58000},
-{nombre:"LIQUID BRUN", precio:72000},
-{nombre:"ODYSSEY AQUA", precio:74000},
-{nombre:"HAWAS CLASICO", precio:56000},
-{nombre:"HAWAS ICE", precio:85000},
+{nombre:"KHAMRAH", precio:50000, img:1},
+{nombre:"KHAMRAH QAHWA", precio:49000, img:2},
+{nombre:"PHILOS PURA", precio:50000, img:3},
+{nombre:"9 PM", precio:58000, img:4},
+{nombre:"CDN INTENSE MAN EDT 105ML", precio:70000, img:5},
+{nombre:"CDN URBAN MAN ELIXIR 105ML", precio:72000, img:6},
+{nombre:"FAKHAR BLACK", precio:55000, img:7},
+{nombre:"OUD FOR GLORY", precio:50000, img:8},
+{nombre:"HONOR AND GLORY", precio:51000, img:9},
+{nombre:"ASAD BOURBON", precio:60000, img:10},
+{nombre:"ASAD", precio:55000, img:11},
+{nombre:"HIS CONFESSION", precio:62000, img:12},
+{nombre:"THE KINGDOM", precio:60000, img:13},
+{nombre:"9 AM DIVE", precio:65000, img:14},
+{nombre:"MANDARIN SKY", precio:58000, img:15},
+{nombre:"LIQUID BRUN", precio:72000, img:16},
+{nombre:"ODYSSEY AQUA", precio:74000, img:17},
+{nombre:"HAWAS CLASICO", precio:56000, img:18},
+{nombre:"HAWAS ICE", precio:85000, img:19},
 
-{nombre:"ASAD ZANZIBAR", precio:55000},
-{nombre:"CONFIDENTIAL GOLD", precio:45000},
-{nombre:"HAYAATI", precio:43000},
-{nombre:"LATTAFA PISA", precio:80000},
-{nombre:"ART OF UNIVERSE", precio:70000},
-{nombre:"QAED AL FURSAN", precio:45000},
-{nombre:"VINTAGE RADIO", precio:56000},
-{nombre:"AQUA DUBAI 100ML", precio:100000},
-{nombre:"GOLD EDITION 120ML", precio:95000}
+{nombre:"ASAD ZANZIBAR", precio:55000, img:20},
+{nombre:"CONFIDENTIAL GOLD", precio:45000, img:21},
+{nombre:"HAYAATI", precio:43000, img:22},
+{nombre:"LATTAFA PISA", precio:80000, img:23},
+{nombre:"ART OF UNIVERSE", precio:70000, img:24},
+{nombre:"QAED AL FURSAN", precio:45000, img:25},
+{nombre:"VINTAGE RADIO", precio:56000, img:26},
+{nombre:"AQUA DUBAI 100ML", precio:100000, img:27},
+{nombre:"GOLD EDITION 120ML", precio:95000, img:28}
 ];
 
 let carrito = [];
@@ -220,10 +219,10 @@ const totalEl = document.getElementById("total");
 
 function mostrar(){
 grid.innerHTML="";
-perfumes.forEach((p,i)=>{
+perfumes.forEach((p)=>{
 grid.innerHTML += `
 <div class="card">
-<img src="perfume${i+1}.jpg">
+<img src="perfume${p.img}.jpg">
 <h3>${p.nombre}</h3>
 <p class="price">$${p.precio}</p>
 <button class="btn" onclick='agregar("${p.nombre}", ${p.precio})'>Agregar</button>
