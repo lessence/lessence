@@ -11,119 +11,129 @@
 body {
     margin: 0;
     font-family: Arial;
-    background: #0f0f0f;
+    background: #0a0a0a;
     color: white;
+    scroll-behavior: smooth;
 }
 
 /* HEADER */
 header {
-    background: linear-gradient(180deg, black, #0f0f0f);
-    padding: 70px 20px;
+    background: linear-gradient(180deg, black, #0a0a0a);
+    padding: 80px 20px;
     text-align: center;
     border-bottom: 1px solid #222;
 }
 
 header img {
-    width: 160px;
+    width: 170px;
     display: block;
     margin: 0 auto;
+    filter: drop-shadow(0 0 10px rgba(201,169,110,0.3));
 }
 
 header h1 {
     margin-top: 20px;
     font-weight: 300;
-    letter-spacing: 4px;
-    font-size: 28px;
+    letter-spacing: 5px;
+    font-size: 32px;
 }
 
 header p {
     color: #c9a96e;
     font-size: 14px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 /* NAV */
 nav {
-    background: #111;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
     padding: 15px;
     text-align: center;
-    border-top: 1px solid #222;
     border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
 }
 
 nav a {
     color: #c9a96e;
-    margin: 0 15px;
+    margin: 0 12px;
     text-decoration: none;
     font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 8px;
     transition: 0.3s;
-    padding: 8px 12px;
-    border-radius: 6px;
 }
 
 nav a:hover {
-    color: black;
     background: #c9a96e;
+    color: black;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 120px 20px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('banner.jpg');
+    padding: 140px 20px;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('banner.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 }
 
 .hero h1 {
-    font-size: 48px;
-    letter-spacing: 3px;
+    font-size: 52px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    animation: fadeUp 1s ease;
 }
 
 .hero p {
     color: #ddd;
     font-size: 20px;
+    animation: fadeUp 1.4s ease;
 }
 
-/* BOTÓN */
+/* BOTONES */
 .btn {
     display: inline-block;
-    margin: 15px 10px 0 10px;
-    padding: 14px 28px;
-    background: #c9a96e;
+    margin: 20px 10px 0 10px;
+    padding: 14px 30px;
+    background: linear-gradient(45deg, #c9a96e, #e6c88f);
     color: black;
-    border-radius: 30px;
+    border-radius: 40px;
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
+    box-shadow: 0 0 15px rgba(201,169,110,0.3);
 }
 
 .btn:hover {
-    background: white;
-    transform: scale(1.08);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(201,169,110,0.6);
 }
 
 /* SECCIONES */
 .section {
-    padding: 60px 20px;
+    padding: 70px 20px;
     text-align: center;
     border-top: 1px solid #222;
+    animation: fadeUp 1s ease;
 }
 
 .section h2 {
     color: #c9a96e;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
 }
 
 .section p {
     color: #ccc;
     max-width: 600px;
     margin: auto;
-    background: #111;
-    padding: 20px;
-    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
 }
 
 /* FOOTER */
@@ -131,23 +141,35 @@ footer {
     background: black;
     color: #aaa;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     border-top: 1px solid #222;
+}
+
+/* ANIMACIONES */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
 
     header {
-        padding: 40px 10px;
+        padding: 50px 10px;
     }
 
     header img {
-        width: 120px;
+        width: 130px;
     }
 
     header h1 {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     nav a {
@@ -156,15 +178,15 @@ footer {
     }
 
     .hero {
-        padding: 60px 15px;
+        padding: 80px 15px;
     }
 
     .hero h1 {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     .hero p {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .btn {
@@ -173,7 +195,7 @@ footer {
     }
 
     .section {
-        padding: 40px 15px;
+        padding: 50px 15px;
     }
 
     .section p {
@@ -189,7 +211,7 @@ footer {
 <header>
     <img src="Icono L´Essence copia.jpg" alt="Logo">
     <h1>L´Essence</h1>
-    <p>Fragancias exclusivas</p>
+    <p>FRAGANCIAS EXCLUSIVAS</p>
 </header>
 
 <nav>
@@ -213,21 +235,21 @@ footer {
     </a>
 </section>
 
-<!-- NUEVA SECCIÓN -->
+<!-- SECCIÓN PRO -->
 <section class="section">
     <h2>¿Por qué elegirnos?</h2>
     <p>
-        Trabajamos con perfumes originales, selección exclusiva y atención personalizada.
-        Te ayudamos a encontrar tu fragancia ideal según tu estilo.
+        Seleccionamos perfumes originales de alta gama, garantizando calidad, duración
+        y una experiencia única. Nuestro objetivo es que encuentres una fragancia que
+        represente tu estilo y personalidad.
     </p>
 </section>
 
-<!-- INFO -->
 <section class="section">
     <h2>¿Quiénes somos?</h2>
     <p>
         Somos una perfumería dedicada a ofrecer fragancias exclusivas,
-        garantizando calidad, originalidad y los mejores precios del mercado.
+        con atención personalizada y los mejores precios del mercado.
     </p>
 </section>
 
@@ -235,13 +257,13 @@ footer {
     <h2>Compra fácil</h2>
     <p>
         Elegí tu perfume en el catálogo y realizá tu pedido directamente por WhatsApp.
-        Rápido, seguro y confiable.
+        Proceso rápido, seguro y confiable.
     </p>
 </section>
 
 <footer>
     <p>General Deheza y Río Cuarto, Argentina</p>
-    <small>&copy; 2026 Perfumería</small>
+    <small>&copy; 2026 L´Essence</small>
 </footer>
 
 </body>
