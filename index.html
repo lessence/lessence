@@ -17,9 +17,10 @@ body {
 
 /* HEADER */
 header {
-    background: black;
-    padding: 60px 20px;
+    background: linear-gradient(180deg, black, #0f0f0f);
+    padding: 70px 20px;
     text-align: center;
+    border-bottom: 1px solid #222;
 }
 
 header img {
@@ -31,11 +32,14 @@ header img {
 header h1 {
     margin-top: 20px;
     font-weight: 300;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
+    font-size: 28px;
 }
 
 header p {
-    color: #aaa;
+    color: #c9a96e;
+    font-size: 14px;
+    letter-spacing: 2px;
 }
 
 /* NAV */
@@ -53,50 +57,52 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
+    padding: 8px 12px;
+    border-radius: 6px;
 }
 
 nav a:hover {
-    color: white;
+    color: black;
+    background: #c9a96e;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 100px 20px;
-
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg');
+    padding: 120px 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('banner.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .hero h1 {
-    font-size: 42px;
-    letter-spacing: 2px;
+    font-size: 48px;
+    letter-spacing: 3px;
 }
 
 .hero p {
-    color: #ccc;
-    font-size: 18px;
+    color: #ddd;
+    font-size: 20px;
 }
 
 /* BOTÓN */
 .btn {
     display: inline-block;
-    margin-top: 25px;
-    padding: 12px 25px;
+    margin: 15px 10px 0 10px;
+    padding: 14px 28px;
     background: #c9a96e;
     color: black;
-    border-radius: 8px;
+    border-radius: 30px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
 }
 
 .btn:hover {
     background: white;
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* SECCIONES */
@@ -115,6 +121,9 @@ nav a:hover {
     color: #ccc;
     max-width: 600px;
     margin: auto;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 /* FOOTER */
@@ -125,7 +134,8 @@ footer {
     padding: 20px;
     border-top: 1px solid #222;
 }
-/* RESPONSIVE PARA CELULAR */
+
+/* RESPONSIVE */
 @media (max-width: 600px) {
 
     header {
@@ -158,7 +168,7 @@ footer {
     }
 
     .btn {
-        font-size: 16px;
+        font-size: 14px;
         padding: 10px 20px;
     }
 
@@ -170,6 +180,7 @@ footer {
         font-size: 14px;
     }
 }
+
 </style>
 </head>
 
@@ -200,6 +211,15 @@ footer {
     <a href="catalogo-decants.html" class="btn">
         Ver Catálogo de Decants
     </a>
+</section>
+
+<!-- NUEVA SECCIÓN -->
+<section class="section">
+    <h2>¿Por qué elegirnos?</h2>
+    <p>
+        Trabajamos con perfumes originales, selección exclusiva y atención personalizada.
+        Te ayudamos a encontrar tu fragancia ideal según tu estilo.
+    </p>
 </section>
 
 <!-- INFO -->
