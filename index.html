@@ -10,54 +10,26 @@
 
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background: #0a0a0a;
     color: white;
-    scroll-behavior: smooth;
 }
 
-/* HEADER */
-header {
-    background: linear-gradient(180deg, black, #0a0a0a);
-    padding: 80px 20px;
-    text-align: center;
-    border-bottom: 1px solid #222;
-}
-
-header img {
-    width: 170px;
-    display: block;
-    margin: 0 auto;
-    filter: drop-shadow(0 0 10px rgba(201,169,110,0.3));
-}
-
-header h1 {
-    margin-top: 20px;
-    font-weight: 300;
-    letter-spacing: 5px;
-    font-size: 32px;
-}
-
-header p {
-    color: #c9a96e;
-    font-size: 14px;
-    letter-spacing: 3px;
-}
-
-/* NAV */
+/* NAV SUPERIOR */
 nav {
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #222;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 nav a {
     color: #c9a96e;
-    margin: 0 12px;
     text-decoration: none;
     font-weight: bold;
     padding: 8px 14px;
@@ -72,134 +44,131 @@ nav a:hover {
 
 /* HERO */
 .hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 140px 20px;
-    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('banner.jpg');
+
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('banner.jpg');
     background-size: cover;
     background-position: center;
 }
 
+.hero img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
 .hero h1 {
-    font-size: 52px;
+    font-size: 50px;
     letter-spacing: 4px;
-    margin-bottom: 10px;
-    animation: fadeUp 1s ease;
 }
 
 .hero p {
-    color: #ddd;
-    font-size: 20px;
-    animation: fadeUp 1.4s ease;
+    color: #ccc;
+    font-size: 18px;
 }
 
 /* BOTONES */
 .btn {
-    display: inline-block;
-    margin: 20px 10px 0 10px;
+    margin-top: 20px;
     padding: 14px 30px;
+    border-radius: 30px;
     background: linear-gradient(45deg, #c9a96e, #e6c88f);
     color: black;
-    border-radius: 40px;
     text-decoration: none;
-    font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
-    box-shadow: 0 0 15px rgba(201,169,110,0.3);
 }
 
 .btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(201,169,110,0.6);
 }
 
-/* SECCIONES */
-.section {
-    padding: 70px 20px;
-    text-align: center;
-    border-top: 1px solid #222;
-    animation: fadeUp 1s ease;
+/* SECCION CATEGORIAS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 60px 20px;
 }
 
-.section h2 {
+.card {
+    position: relative;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, black);
+}
+
+.card h3 {
+    margin: 0;
     color: #c9a96e;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
+}
+
+/* INFO */
+.section {
+    text-align: center;
+    padding: 60px 20px;
 }
 
 .section p {
-    color: #ccc;
     max-width: 600px;
     margin: auto;
-    background: rgba(255,255,255,0.03);
-    padding: 25px;
-    border-radius: 12px;
-    backdrop-filter: blur(8px);
+    color: #ccc;
 }
 
 /* FOOTER */
 footer {
-    background: black;
-    color: #aaa;
     text-align: center;
-    padding: 25px;
-    border-top: 1px solid #222;
+    padding: 30px;
+    color: #aaa;
+    background: black;
 }
 
-/* ANIMACIONES */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 22px;
+    text-decoration: none;
 }
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
 
-    header {
-        padding: 50px 10px;
-    }
-
-    header img {
-        width: 130px;
-    }
-
-    header h1 {
-        font-size: 24px;
-    }
-
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .hero {
-        padding: 80px 15px;
-    }
-
     .hero h1 {
         font-size: 28px;
     }
 
-    .hero p {
-        font-size: 15px;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 20px;
-    }
-
-    .section {
-        padding: 50px 15px;
-    }
-
-    .section p {
-        font-size: 14px;
+    nav {
+        flex-direction: column;
     }
 }
 
@@ -207,12 +176,6 @@ footer {
 </head>
 
 <body>
-
-<header>
-    <img src="Icono L´Essence copia.jpg" alt="Logo">
-    <h1>L´Essence</h1>
-    <p>FRAGANCIAS EXCLUSIVAS</p>
-</header>
 
 <nav>
     <a href="index.html">Inicio</a>
@@ -224,40 +187,46 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-    <h1>Descubrí tu fragancia ideal</h1>
-    <p>Perfumes exclusivos y árabes de alta calidad</p>
-    
-    <a href="pruebacatalogo3.html" class="btn">
-        Ver Catálogo de Perfumes
-    </a>
-    <a href="catalogo-decants.html" class="btn">
-        Ver Catálogo de Decants
-    </a>
+    <img src="Icono L´Essence copia.jpg">
+    <h1>L´Essence</h1>
+    <p>Fragancias exclusivas de alta gama</p>
+
+    <a href="pruebacatalogo3.html" class="btn">Ver Perfumes</a>
 </section>
 
-<!-- SECCIÓN PRO -->
+<!-- CATEGORIAS -->
+<section class="grid">
+
+    <a href="pruebacatalogo3.html" class="card">
+        <img src="banner.jpg">
+        <div class="card-content">
+            <h3>Perfumes</h3>
+        </div>
+    </a>
+
+    <a href="catalogo-decants.html" class="card">
+        <img src="banner.jpg">
+        <div class="card-content">
+            <h3>Decants</h3>
+        </div>
+    </a>
+
+</section>
+
+<!-- INFO -->
 <section class="section">
-    <h2>¿Por qué elegirnos?</h2>
+    <h2 style="color:#c9a96e;">¿Quiénes somos?</h2>
     <p>
-        Seleccionamos perfumes originales de alta gama, garantizando calidad, duración
-        y una experiencia única. Nuestro objetivo es que encuentres una fragancia que
-        represente tu estilo y personalidad.
+        En L’Essence seleccionamos perfumes originales y exclusivos,
+        brindando calidad, elegancia y una experiencia única en cada fragancia.
     </p>
 </section>
 
 <section class="section">
-    <h2>¿Quiénes somos?</h2>
+    <h2 style="color:#c9a96e;">Compra fácil</h2>
     <p>
-        Somos una perfumería dedicada a ofrecer fragancias exclusivas,
-        con atención personalizada y los mejores precios del mercado.
-    </p>
-</section>
-
-<section class="section">
-    <h2>Compra fácil</h2>
-    <p>
-        Elegí tu perfume en el catálogo y realizá tu pedido directamente por WhatsApp.
-        Proceso rápido, seguro y confiable.
+        Elegí tu fragancia y pedila directamente por WhatsApp de forma rápida,
+        segura y confiable.
     </p>
 </section>
 
@@ -265,6 +234,11 @@ footer {
     <p>General Deheza y Río Cuarto, Argentina</p>
     <small>&copy; 2026 L´Essence</small>
 </footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/5493584114412" target="_blank">
+    💬
+</a>
 
 </body>
 </html>
