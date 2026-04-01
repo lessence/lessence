@@ -199,7 +199,39 @@ footer {
         filter: drop-shadow(0 0 25px rgba(201,169,110,0.9));
     }
 }
+/* MEJORA NAV EN CELULAR */
+@media (max-width: 600px) {
 
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+    }
+
+    nav a,
+    .dropdown > a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* dropdown en celular */
+    .dropdown-content {
+        position: static;
+        border: none;
+        background: #111;
+        display: none;
+    }
+
+    /* se abre al tocar */
+    .dropdown:active .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        padding: 12px;
+    }
+}
 </style>
 </head>
 
